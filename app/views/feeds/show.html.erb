@@ -1,0 +1,15 @@
+<h1>Feed details</h1>
+<p><b>Title:</b><%= @feed.title %></p>
+<p><b>URL:</b><%= @feed.url %></p>
+<p><b>Description:</b><%= @feed.description %></p>
+
+<%= link_to 'Edit', edit_feed_path(@feed) %> | <%= link_to 'Back', feeds_path %>
+
+<h3>Recent feeds</h3>
+<% @feed.entries.each do |entry| %>
+  <div style="margin-bottom:10px;">
+    <div><%= link_to entry.title, entry.url, target: "_blank" %></div>
+    <div><%= entry.published %></div>
+  </div>
+  <p><%= entry.summary %></p>
+<% end if @feed.entries %>

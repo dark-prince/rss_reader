@@ -1,0 +1,7 @@
+<h1>Latest posts</h1>
+
+<div class="list-group">
+  <% @posts.each do |post| %>
+    <p><%= link_to post.title, post.url, target: "_blank" %></p>
+  <% end if @posts.present? %>
+</div>
